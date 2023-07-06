@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.kpfu.itis.spymasters.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_createGameFragment"
+            app:destination="@id/createGameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="ru.kpfu.itis.spymasters.CreateGameFragment"
+        android:label="fragment_create_game"
+        tools:layout="@layout/fragment_create_game" >
+        <action
+            android:id="@+id/action_createGameFragment_to_startGameFragment"
+            app:destination="@id/startGameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startGameFragment"
+        android:name="ru.kpfu.itis.spymasters.StartGameFragment"
+        android:label="fragment_start_game"
+        tools:layout="@layout/fragment_start_game" >
+        <argument
+            android:name="timer"
+            app:argType="integer" />
+        <argument
+            android:name="countSpy"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
+
+</navigation>
