@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Spymasters</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Следующий</string>
+    <string name="role">Роль</string>
+    <string name="category">Категория</string>
+    <string name="player">Игрок</string>
+    <string name="Category">Место</string>
+    <string name="oneOfCategory">Парк</string>
+    <string name="guess">Угадай место</string>
+    <string name="spy">Ты ШПИОН</string>
 </resources>
