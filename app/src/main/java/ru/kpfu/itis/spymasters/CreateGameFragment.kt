@@ -151,6 +151,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         adapter?.updateDataset()
     }
 
+
     private fun addPlayer(){
         var number = players.size + 1
         var name = "Игрок " + number.toString()
