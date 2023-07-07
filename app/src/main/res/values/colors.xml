@@ -9,5 +9,7 @@
     <color name="red">#B01605</color>
     <color name="red_not_visible">#A8B01605</color>
     <color name="malina">#B00555</color>
+    <color name="red_not_visible_brighter">#DDE1230D</color>
+    <color name="dark_grey">#A8424242</color>
 
 </resources>

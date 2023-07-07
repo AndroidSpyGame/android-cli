@@ -20,7 +20,6 @@ class CardFragment : Fragment(R.layout.fragment_card) {
 
     private var binding: FragmentCardBinding? = null
 
-//    private var stateUi: State  = State.CloseCard
     private val listPlaces: List<String> = PlaceRepository.list
     private val listPlayers: List<String> = PlayersRepository.list
     private val place: String = listPlaces[(0..listPlaces.size).random()]
@@ -40,10 +39,9 @@ class CardFragment : Fragment(R.layout.fragment_card) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        BackgroundAnimator.animate(binding?. as AnimationDrawable, 10, 4000)
-//        BackgroundAnimator.animate(R.layout.fragment_card as AnimationDrawable, 10,4000)
-
         binding = FragmentCardBinding.bind(view)
+
+        BackgroundAnimator.animate(binding?.root?.background as AnimationDrawable, 10, 4000)
 
         buttonNext = binding?.btnNext
         buttonStart = binding?.btnStart

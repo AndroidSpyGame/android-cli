@@ -1,5 +1,6 @@
 package ru.kpfu.itis.spymasters
 
+import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
