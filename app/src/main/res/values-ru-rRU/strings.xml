@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name">Шпион</string>
     <string name="finish_game">Завершить игру</string>
+    <string name="icon_desc_help">Помощь</string>
+    <string name="icon_desc_menu">Меню</string>
+    <string name="icon_desc_pause">Пауза/Продолжить</string>
+    <string name="icon_desc_timer">Таймер</string>
 </resources>
