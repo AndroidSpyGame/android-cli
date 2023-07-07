@@ -1,93 +1,89 @@
 package ru.kpfu.itis.spymasters
 
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
 import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import ru.kpfu.itis.spymasters.databinding.FragmentCardBinding
 
 
 class CardFragment : Fragment(R.layout.fragment_card) {
-
-    private var buttonRole: Button? = null
     private var buttonNext: Button? = null
     private var buttonStart: Button? = null
 
-    private var category: TextView? = null
     private var binding: FragmentCardBinding? = null
-    private var stateUi: State  = State.CloseCard
+
+//    private var stateUi: State  = State.CloseCard
     private val listPlaces: List<String> = PlaceRepository.list
     private val listPlayers: List<String> = PlayersRepository.list
     private val place: String = listPlaces[(0..listPlaces.size).random()]
+
     var counter = 0
-    var spyNumber = (0..listPlayers.size).random()
+    var spyNumber = (0..listPlayers.size-1).random()
+
+    private var cardNewClose: CardView? = null
+    private var cardNewOpenSpy: CardView? = null
+    private var cardNewOpenSimplePlayer: CardView? = null
+    private var cardCurrent: CardView? = null
+
+    private var isBackOpened: Boolean = true
+
 
     @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
+
+//        BackgroundAnimator.animate(binding?. as AnimationDrawable, 10, 4000)
+//        BackgroundAnimator.animate(R.layout.fragment_card as AnimationDrawable, 10,4000)
+
         binding = FragmentCardBinding.bind(view)
 
-        buttonRole = binding?.btnRole
         buttonNext = binding?.btnNext
         buttonStart = binding?.btnStart
-        category = binding?.tvOneOfCategory
-        binding?.player?.text = listPlayers[counter]
+        binding?.tvCardBackOneOfCategory?.text = place
+        binding?.tvCardPlayer?.text = listPlayers[counter]
 
-        buttonRole?.setOnClickListener {
-            when(stateUi){
-                State.CloseCard -> {
-                    stateUi =
-                        if (spyNumber != counter) {
-                        openCard(binding?.cvSmallSimplePlayer)
-                        State.SimplePlayer}
-                    else {
-                        openCard(binding?.cvSmallSpymaster)
-                        State.Spymaster}
+        cardNewClose = binding?.cvClosedCard
+        cardNewOpenSpy = binding?.cvSpy
+        cardNewOpenSimplePlayer = binding?.cvSimplePlayer
+
+
+        cardNewClose?.setOnClickListener {
+            if (spyNumber == counter) {
+                if (isBackOpened) {
+                    cardCurrent = flipCard(this.context, cardNewClose, cardNewOpenSpy)
+                    showBtnNext()
+                } else {
+                    cardCurrent = flipCard(this.context, cardNewOpenSpy, cardNewClose)
                 }
-                State.SimplePlayer -> {
-                    closeCard(binding?.cvSmallSimplePlayer)
-                    stateUi = State.CloseCard
-                }
-                State.Spymaster -> {
-                    closeCard(binding?.cvSmallSpymaster)
-                    stateUi = State.CloseCard
+            } else {
+                if (isBackOpened) {
+                    showBtnNext()
+                    cardCurrent = flipCard(this.context, cardNewClose, cardNewOpenSimplePlayer)
+                } else {
+                    cardCurrent = flipCard(this.context, cardNewOpenSimplePlayer, cardNewClose)
                 }
             }
         }
-
 
         buttonNext?.setOnClickListener {
             if (counter == listPlayers.size - 1) {
                 buttonNext?.visibility = View.GONE
             } else {
-                counter++
-                buttonNext?.visibility = View.GONE
-                when (stateUi) {
-                    State.CloseCard -> {
-//                    binding?.cvSmallSimplePlayer?.visibility = View.GONE
-//                    binding?.cvSmallSpymaster?.visibility = View.GONE
-//                    binding?.cvSmallClose?.visibility = View.VISIBLE
-                        binding?.player?.text = listPlayers[counter]
-                        stateUi = State.CloseCard
-                    }
-
-                    State.SimplePlayer -> {
-                        binding?.player?.text = listPlayers[counter]
-                        closeCard(binding?.cvSmallSimplePlayer)
-                        stateUi = State.CloseCard
-                    }
-
-                    State.Spymaster -> {
-                        binding?.player?.text = listPlayers[counter]
-                        closeCard(binding?.cvSmallSpymaster)
-                        stateUi = State.CloseCard
-                    }
+                if(!isBackOpened) {
+                    cardCurrent = flipCard(this.context, cardCurrent, cardNewClose)
                 }
             }
+            counter++
+            buttonNext?.visibility = View.GONE
+            binding?.tvCardPlayer?.text = listPlayers[counter]
         }
     }
 
@@ -96,29 +92,53 @@ class CardFragment : Fragment(R.layout.fragment_card) {
         binding = null
     }
 
-    sealed class State( ) {
-        object Spymaster: State()
-        object SimplePlayer: State()
-        object CloseCard: State()
-    }
-
-    fun openCard(crdVw: CardView?) {
+    @SuppressLint("ResourceType")
+    fun showBtnNext() {
         if (counter == listPlayers.size - 1) {
             buttonNext?.visibility = View.GONE
             buttonStart?.visibility = View.VISIBLE
         } else {
             buttonNext?.visibility = View.VISIBLE // кнопка становится видимой
         }
-        crdVw?.visibility = View.VISIBLE
-        category?.text = place
-        binding?.cvSmallClose?.visibility = View.GONE
-        buttonRole?.text = "Скрыть"
     }
 
-    fun closeCard(cardView: CardView?) {
-        cardView?.visibility = View.GONE
-        binding?.cvSmallClose?.visibility = View.VISIBLE
-//                    it.setBackgroundResource(R.drawable.button_bg_color)
-        buttonRole?.text = "Роль"
+    fun flipCard(context: Context?, closedCard: CardView?, openedCard: CardView?): CardView? {
+        try {
+            closedCard?.visibility = View.VISIBLE
+            val flipOutAnimatorSet =
+                AnimatorInflater.loadAnimator(
+                    context,
+                    R.animator.flip_out
+                ) as AnimatorSet
+            flipOutAnimatorSet.setTarget(closedCard)
+            val flipInAnimatorSet =
+                AnimatorInflater.loadAnimator(
+                    context,
+                    R.animator.flip_in
+                ) as AnimatorSet
+            flipOutAnimatorSet.start()
+
+            flipInAnimatorSet.setTarget(openedCard)
+            flipInAnimatorSet.start()
+            openedCard?.visibility = View.VISIBLE
+
+            flipInAnimatorSet.doOnEnd {
+            }
+            isBackOpened = !isBackOpened
+        } catch (e: Exception) {
+            Exception(e)
+        }
+        return openedCard
+    }
+
+    object BackgroundAnimator {
+        fun animate(
+            animationDrawable: AnimationDrawable,
+            enterFadeDuration: Int,
+            exitFadeDuration: Int) {
+            animationDrawable.setEnterFadeDuration(enterFadeDuration)
+            animationDrawable.setExitFadeDuration(exitFadeDuration)
+            animationDrawable.start()
+        }
     }
 }

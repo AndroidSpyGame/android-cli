@@ -4,225 +4,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/deep_blue"
+    android:background="@drawable/gradient_list"
     tools:context=".CardFragment">
 
-    <Button
-        android:id="@+id/btnRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/button_bg_color"
-        android:foreground="?selectableItemBackground"
-        android:paddingHorizontal="40dp"
-        android:shadowColor="@color/black"
-        android:text="@string/role"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_closedCard"
+            android:layout_width="210dp"
+            android:layout_height="280dp"
+            android:layout_marginVertical="200dp"
+            android:layout_marginHorizontal="96dp"
+            android:background="@color/deep_blue"
+            app:cardCornerRadius="16dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_cardPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_dark"
+                android:gravity="center"
+                android:text="Игрок"
+                android:textColor="@android:color/white"
+                android:textSize="40sp" />
+
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_Spy"
+            android:layout_width="210dp"
+            android:layout_height="280dp"
+            android:layout_marginVertical="200dp"
+            android:layout_marginHorizontal="96dp"
+            android:background="@color/deep_blue"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="16dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_remove_red_eye_24"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv_cardBackSpy2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Ты ШПИОН"
+                android:layout_marginBottom="160dp"
+                android:layout_marginHorizontal="20dp"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@android:color/holo_red_light" />
+
+            <TextView
+                android:id="@+id/tv_spyGuess"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="160dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="Угадай место"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@android:color/holo_red_light" />
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_simplePlayer"
+            android:layout_width="210dp"
+            android:layout_height="280dp"
+            android:layout_marginVertical="200dp"
+            android:layout_marginHorizontal="96dp"
+            android:background="@color/deep_blue"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/black"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_cardBackOneOfCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text="Парк"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_cardBackCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="100dp"
+                android:text="Место"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
     <Button
         android:id="@+id/btnNext"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="72dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/button_bg_color"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/button_style"
         android:foreground="?selectableItemBackground"
         android:text="@string/next"
         android:textColor="@color/deep_blue"
         android:textSize="28sp"
         app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRole" />
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btnStart"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/button_bg_color"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/button_style"
         android:foreground="?selectableItemBackground"
         android:text="Поехали"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/red"
+        android:visibility="gone"
+        app:backgroundTint="@color/red_not_visible"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRole" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/white"
-        android:outlineSpotShadowColor="@color/black"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRole"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="299dp">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cvSmall_close"
-                android:layout_width="250dp"
-                android:layout_height="300dp"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="4dp"
-                android:layout_marginBottom="56dp"
-                android:background="@color/white"
-                android:outlineSpotShadowColor="@color/black"
-                android:visibility="visible"
-                app:cardBackgroundColor="@color/black"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/player"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="-5dp"
-                        android:gravity="center"
-                        android:text="@string/player"
-                        android:textColor="@color/white"
-                        android:textSize="32sp" />
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cvSmall_SimplePlayer"
-                android:layout_width="250dp"
-                android:layout_height="300dp"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="4dp"
-                android:layout_marginBottom="56dp"
-                android:background="@color/red"
-                android:outlineSpotShadowColor="@color/black"
-                android:visibility="gone"
-                app:cardBackgroundColor="@color/beige"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_category"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
-                        android:gravity="center"
-                        android:text="@string/Category"
-                        android:textColor="@color/white"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_OneOfCategory"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="160dp"
-                        android:gravity="center"
-                        android:text="@string/oneOfCategory"
-                        android:textColor="@color/white"
-                        android:textSize="40sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cvSmall_Spymaster"
-                android:layout_width="250dp"
-                android:layout_height="300dp"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="4dp"
-                android:layout_marginBottom="56dp"
-                android:background="@color/red"
-                android:outlineSpotShadowColor="@color/black"
-                android:visibility="gone"
-                app:cardBackgroundColor="@color/red"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:visibility="visible">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_Spy"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
-                        android:gravity="center"
-                        android:text="@string/spy"
-                        android:textColor="@color/white"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/iv_spy"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_marginLeft="95dp"
-                        android:layout_marginTop="100dp"
-                        android:background="@drawable/spy"
-                        android:visibility="visible"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@drawable/spy" />
-
-                    <TextView
-                        android:id="@+id/tv_guess"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="160dp"
-                        android:gravity="center"
-                        android:text="@string/guess"
-                        android:textColor="@color/white"
-                        android:textSize="40sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/iv_menu"
