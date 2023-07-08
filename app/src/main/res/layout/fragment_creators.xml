@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Создатели:"
+        android:text="@string/creators_button_text"
         android:textColor="@color/white"
         android:textSize="26dp"
         android:fontFamily="@font/rubik_light"

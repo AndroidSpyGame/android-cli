@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/rubik_light"
 
-        android:text="Spymasters"
+        android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="48dp"
 
@@ -42,7 +42,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_style"
-        android:text="Правила"
+        android:text="@string/rules_button_text"
 
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -60,7 +60,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_style"
-        android:text="Создатели"
+        android:text="@string/creators_button_text"
 
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -77,7 +77,7 @@
         android:layout_width="256dp"
         android:layout_height="64dp"
         android:background="@drawable/button_style"
-        android:text="Играть"
+        android:text="@string/play_button_text"
         android:textAlignment="center"
 
         android:textAllCaps="false"

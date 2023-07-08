@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Правила:"
+        android:text="@string/rules_button_text"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:fontFamily="@font/rubik_light"
@@ -102,7 +102,7 @@
         android:id="@+id/page_number_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Номер страницы"
+        android:text="@string/page_number_text"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
