@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Шпион</string>
+    <string name="hello_blank_fragment">Привет, мир!</string>
+    <string name="next">Следующий</string>
+    <string name="role">Роль</string>
+    <string name="category">Категория</string>
+    <string name="player">Игрок</string>
+    <string name="Category">Место</string>
+    <string name="oneOfCategory">Парк</string>
+    <string name="guess">Угадай место</string>
+    <string name="spy">Ты ШПИОН</string>
     <string name="finish_game">Завершить игру</string>
     <string name="icon_desc_help">Помощь</string>
     <string name="icon_desc_menu">Меню</string>
     <string name="icon_desc_pause">Пауза/Продолжить</string>
     <string name="icon_desc_timer">Таймер</string>
+    <string name="go">Поехали</string>
 </resources>

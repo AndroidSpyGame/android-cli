@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_list"
+    tools:context=".CardFragment">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_closedCard"
+            android:foreground="@drawable/bg_roundrect_ripple_light_border"
+            android:layout_width="210dp"
+            android:layout_height="280dp"
+            android:layout_marginVertical="200dp"
+            android:layout_marginHorizontal="96dp"
+            android:background="@color/deep_blue"
+            app:cardCornerRadius="16dp"
+            android:visibility="visible"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp">
+
+            <TextView
+                android:id="@+id/tv_cardPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_dark"
+                android:gravity="center"
+                android:text="@string/player"
+                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:textColor="@android:color/white"
+                android:textSize="40sp" />
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_Spy"
+            android:foreground="@drawable/bg_roundrect_ripple_light_border"
+            android:layout_width="210dp"
+            android:layout_height="280dp"
+            android:layout_marginVertical="200dp"
+            android:layout_marginHorizontal="96dp"
+            android:background="@color/deep_blue"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="16dp"
+            android:visibility="gone"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_remove_red_eye_24"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_cardBackSpy2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/spy"
+                android:layout_marginBottom="160dp"
+                android:layout_marginHorizontal="20dp"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:textColor="@color/red_not_visible_brighter" />
+
+            <TextView
+                android:id="@+id/tv_spyGuess"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="160dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:text="@string/guess"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@color/red_not_visible_brighter" />
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_simplePlayer"
+            android:foreground="@drawable/bg_roundrect_ripple_light_border"
+            android:layout_width="210dp"
+            android:layout_height="280dp"
+            android:layout_marginVertical="200dp"
+            android:layout_marginHorizontal="96dp"
+            android:background="@color/deep_blue"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/black"
+            android:visibility="gone"
+            app:strokeColor="@color/white"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
+            android:elevation="36dp"
+            app:strokeWidth="2dp">
+
+            <TextView
+                android:id="@+id/tv_cardBackOneOfCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text="@string/oneOfCategory"
+                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_cardBackCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="100dp"
+                android:text="@string/Category"
+                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="72dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/button_style"
+        android:foreground="?selectableItemBackground"
+        android:text="@string/next"
+        android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+        android:textColor="@color/deep_blue"
+        android:textSize="28sp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/button_style"
+        android:foreground="?selectableItemBackground"
+        android:text="@string/go"
+        android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:backgroundTint="@color/red_not_visible"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/menu_2"
+        android:background="@drawable/menu_2"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/iv_help"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/help"
+        android:background="@drawable/help"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
