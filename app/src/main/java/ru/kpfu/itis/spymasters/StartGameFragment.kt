@@ -26,7 +26,6 @@ class StartGameFragment : Fragment(R.layout.fragment_start_game) {
             bundle.putParcelableArrayList("players", ArrayList(players.toList()))
         }
 
-
         binding?.run {
             if (players != null)
             for (item: Player in players){
