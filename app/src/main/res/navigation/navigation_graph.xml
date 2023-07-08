@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="ru.kpfu.itis.spymasters.MainFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_creatorsFragment"
+            app:destination="@id/creatorsFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/creatorsFragment"
+        android:name="ru.kpfu.itis.spymasters.CreatorsFragment"
+        android:label="fragment_creators"
+        tools:layout="@layout/fragment_creators" >
+        <action
+            android:id="@+id/action_creatorsFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="ru.kpfu.itis.spymasters.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_rulesFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+
+</navigation>

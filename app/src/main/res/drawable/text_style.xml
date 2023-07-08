@@ -5,10 +5,9 @@
             <corners
                 android:topLeftRadius="20dp"
                 android:bottomRightRadius="20dp"/>
-            <gradient
-                android:angle="45"
-                android:startColor="#8e9eab"
-                android:endColor="#eef2f3" />
+            <stroke
+                android:color="@color/white"
+                android:width="2dp"/>
         </shape>
     </item>
 </selector>

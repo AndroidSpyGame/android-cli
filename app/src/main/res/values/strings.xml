@@ -15,4 +15,13 @@
     <string name="guess">Guess the place</string>
     <string name="spy">You are a spy</string>
     <string name="go">Go</string>
+    <string name="play_button_text">Play</string>
+    <string name="rules_button_text">Rules</string>
+    <string name="creators_button_text">Creators</string>
+    <string name="page_number_text">Page</string>
+    <string name="creator_name">Name</string>
+    <string name="creator_surname">Surname</string>
+    <string name="creator_tg">Telegram</string>
+    <string name="btn_back">Back</string>
+    <string name="rules_text">Rules</string>
 </resources>

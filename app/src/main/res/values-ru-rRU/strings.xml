@@ -16,4 +16,13 @@
     <string name="icon_desc_pause">Пауза/Продолжить</string>
     <string name="icon_desc_timer">Таймер</string>
     <string name="go">Поехали</string>
+    <string name="play_button_text">Играть</string>
+    <string name="rules_button_text">Правила</string>
+    <string name="creators_button_text">Создатели</string>
+    <string name="page_number_text">Номер страницы</string>
+    <string name="creator_name">Имя</string>
+    <string name="creator_surname">Фамилия</string>
+    <string name="creator_tg">Телеграм</string>
+    <string name="btn_back">Назад</string>
+    <string name="rules_text">Текст правил</string>
 </resources>
