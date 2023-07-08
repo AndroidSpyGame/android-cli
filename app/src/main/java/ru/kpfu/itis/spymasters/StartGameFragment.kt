@@ -21,10 +21,10 @@ class StartGameFragment : Fragment(R.layout.fragment_start_game) {
         val countSpy = arguments?.getInt("countSpy")
         val players: ArrayList<Player>? = arguments?.getParcelableArrayList<Player>("players")
 
-        var bundle = Bundle()
-        if (players != null){
-            bundle.putParcelableArrayList("players", ArrayList(players.toList()))
-        }
+//        var bundle = Bundle()
+//        if (players != null){
+//            bundle.putParcelableArrayList("players", ArrayList(players.toList()))
+//        }
 
         binding?.run {
             if (players != null)
@@ -34,10 +34,11 @@ class StartGameFragment : Fragment(R.layout.fragment_start_game) {
                     return
                 }
             }
+
             textView6.text = players?.firstOrNull()?.name.toString()
 
-            button.setOnClickListener {
-                findNavController().navigate(R.id.action_startGameFragment_to_votingFragment, bundle)
+            btnToVotingFragment.setOnClickListener {
+//                findNavController().navigate(R.id.action_createGameFragment_to_votingFragment)
             }
         }
     }

@@ -20,9 +20,15 @@
         android:name="ru.kpfu.itis.spymasters.CreateGameFragment"
         android:label="fragment_create_game"
         tools:layout="@layout/fragment_create_game" >
+<!--        <action-->
+<!--            android:id="@+id/action_createGameFragment_to_startGameFragment"-->
+<!--            app:destination="@id/startGameFragment" />-->
         <action
             android:id="@+id/action_createGameFragment_to_startGameFragment"
             app:destination="@id/startGameFragment" />
+        <action
+            android:id="@+id/action_createGameFragment_to_votingFragment"
+            app:destination="@id/votingFragment" />
     </fragment>
 
     <fragment
@@ -30,9 +36,7 @@
         android:name="ru.kpfu.itis.spymasters.StartGameFragment"
         android:label="fragment_start_game"
         tools:layout="@layout/fragment_start_game" >
-        <action
-            android:id="@+id/action_startGameFragment_to_votingFragment"
-            app:destination="@id/votingFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/votingFragment"

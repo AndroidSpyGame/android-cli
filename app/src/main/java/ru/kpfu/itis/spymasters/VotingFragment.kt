@@ -6,76 +6,61 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import androidx.core.view.allViews
+import androidx.core.view.marginTop
+import androidx.core.view.setPadding
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.kpfu.itis.spymasters.databinding.FragmentVotingBinding
 
 class VotingFragment : Fragment(R.layout.fragment_voting) {
 
     private var binding: FragmentVotingBinding? = null
     private var players: ArrayList<Player>? = null
-    private var adapter: PlayerVotingAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentVotingBinding.bind(view)
 
-        //players = arguments?.getParcelableArrayList<Player>("players")
-        players = createPlayerList()
-
-        var recyclerView = binding?.recyclerViewVoting
-
-        //var deleteBtn = binding?.deletePlayer
-
-        recyclerView?.layoutManager = LinearLayoutManager(context)
-
-        adapter = PlayerVotingAdapter(players!!)
-        recyclerView?.adapter = adapter
+        BackgroundAnimator.animate(binding?.votingLayout?.background as AnimationDrawable, 10,4000)
+        players = arguments?.getParcelableArrayList<Player>("players")
+        binding?.radGroup?.removeView(binding?.root?.findViewById(R.id.example))
+        addRadBtn()
 
         binding?.run {
             deletePlayer.setOnClickListener {
-                val selectedPlayer = adapter?.getSelectedPlayer()
-
-                if (selectedPlayer != null) {
-                    adapter?.removePlayer(selectedPlayer)
-                } else {
-
-                }
-
+                var selectedRadBtn = radGroup.checkedRadioButtonId
+                radGroup.removeView(binding?.root?.findViewById(selectedRadBtn))
+                removePlayer(selectedRadBtn)
             }
         }
+    }
 
-
-//        var recyclerView = binding?.recyclerViewVoting
-//
-//        if (players != null){
-//            adapter = PlayerVotingAdapter(players as java.util.ArrayList<Player>)
-//        }
-//
-////        recyclerView?.layoutManager = LinearLayoutManager(this)
-////        recyclerView?.adapter = adapter
-//
-//
-//
-////        recyclerView.layoutManager = LinearLayoutManager(this)
-////        recyclerView.adapter =
-
-        BackgroundAnimator.animate(binding?.votingLayout?.background as AnimationDrawable, 10,4000)
-
-
-        binding.run {
-
+    private fun addRadBtn() {
+        var i = 0
+        for (item: Player in players!!){
+            var radioButton = RadioButton(context)
+            var id = View.generateViewId()
+            players!![i].id = id
+            radioButton.setText(item.name)
+            radioButton.setId(id)
+            radioButton.setButtonDrawable(R.drawable.custom_icon)
+            radioButton.setBackgroundResource(R.drawable.custome_test)
+            radioButton.setPadding(30)
+            radioButton.setTextSize(30F)
+            binding?.radGroup?.addView(radioButton)
         }
     }
 
-    private fun createPlayerList(): ArrayList<Player> {
-        val playerList = arrayListOf<Player>()
-        playerList.add(Player("Игрок 1", false))
-        playerList.add(Player("Игрок 2", false))
-        playerList.add(Player("Игрок 3", false))
-        playerList.add(Player("Игрок 4", false))
-        return playerList
+    private fun removePlayer(id: Int){
+        for (i in (0..players!!.size - 1)){
+            if (players!![i].id == id){
+                players!!.removeAt(i)
+                break
+            }
+        }
     }
-
-
 }

@@ -40,7 +40,10 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
                     putParcelableArrayList("players", ArrayList(players.toList()))
                 }
 
-                findNavController().navigate(R.id.action_createGameFragment_to_startGameFragment, bundle)
+                //action_createGameFragment_to_startGameFragment
+
+                findNavController().navigate(R.id.action_createGameFragment_to_votingFragment, bundle)
+                //findNavController().navigate(R.id.action_createGameFragment_to_startGameFragment, bundle)
             }
 
             addPlayer.setOnClickListener {
