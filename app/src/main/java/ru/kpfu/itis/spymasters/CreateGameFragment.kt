@@ -1,5 +1,6 @@
 package ru.kpfu.itis.spymasters
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -13,28 +14,32 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     private var binding: FragmentCreateGameBinding? = null
     private var adapter: PlayerAdapter? = null
     private var players = ArrayList<Player>()
-//    private var timer: Int = 5
-
     private var radioGroupTimerList = ArrayList<RadioButton>()
-//    private lateinit var communicator: Communicator
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateGameBinding.bind(view)
-        val bundle = Bundle()
 
+        BackgroundAnimator.animate(binding?.createGameLayout?.background as AnimationDrawable, 10,4000)
 
         var countSpy = 1
         var timer = 5
-//        var playersBool = randomPlayerSpy(countSpy)
         initAdapter()
         binding?.run {
+
+            //  сохранение новых имен
+            players = adapter?.getPlayers()!!
+
+            // генерация и переход
             createGame.setOnClickListener {
-                bundle.putInt("timer", timer)
-                bundle.putInt("countSpy", countSpy)
-//                bundle.putBooleanArray("playersBool")
-//                bundle.putSerializable("players", players)
+                val bundle = Bundle()
+                randomSpy(countSpy)
+                bundle.apply {
+                    putInt("timer", timer)
+                    putInt("countSpy", players.size)
+                    putParcelableArrayList("players", ArrayList(players.toList()))
+                }
+
                 findNavController().navigate(R.id.action_createGameFragment_to_startGameFragment, bundle)
             }
 
@@ -42,6 +47,8 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
                 addPlayer()
             }
 
+
+            // выбор кол-ва шпионов
             radioButtonSpy1.setOnClickListener {
                 countSpy = 1
             }
@@ -53,6 +60,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
             }
 
 
+            // выбор таймера
             radioButton5.isChecked = true
             radioGroupTimerList.add(radioButton3)
             radioGroupTimerList.add(radioButton4)
@@ -108,24 +116,47 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         }
     }
 
-//    private fun randomPlayerSpy(countSpy: Int): ArrayList<Boolean>{
-//        var list = ArrayList<Int>()
-//        for (i in 1..countSpy){
-//            var random = (1..players.size).random()
-//            while(list.contains(random)){
-//                random = (1..players.size).random()
-//            }
-//            players[random - 1].isSpy = true
-//            list.add(random)
-//        }
-//
-//
-//        for (i in 0..countSpy - 1){
-//            bools[i] = players[i].isSpy
-//        }
-//        return bools
-//    }
+    fun updateText(position: Int, newName: String) {
+        // Сохраните newText в базе данных или в другом месте
+        players[position].name = newName
+    }
 
+    private fun randomSpy(countSpy: Int){
+        if (countSpy == 1){
+            var random = (1..players.size).random()
+            players[random - 1].isSpy = true
+        }
+        else if (countSpy == 2){
+            var random1 = (1..players.size).random()
+            players[random1 - 1].isSpy = true
+
+            var random2 = 0
+            while ((random2 != 0) or (random1 != random2)){
+                random2 = (1..players.size).random()
+            }
+
+            players[random1].isSpy = true
+            players[random2].isSpy = true
+        }
+        else if (countSpy == 3){
+            var random1 = (1..players.size).random()
+            players[random1 - 1].isSpy = true
+
+            var random2 = 0
+            while ((random2 == 0) or (random1 == random2)){
+                random2 = (1..players.size).random()
+            }
+
+            var random3 = 0
+            while ((random3 == 0) or (random3 == random2) or (random3 == random1)){
+                random3 = (1..players.size).random()
+            }
+
+            players[random1 - 1].isSpy = true
+            players[random2 - 1].isSpy = true
+            players[random3 - 1].isSpy = true
+        }
+    }
 
     private fun onClickTimer(radioButton: RadioButton){
         check(true)
@@ -147,7 +178,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     private fun addPlayers(players: ArrayList<Player>){
         players.add(Player("Игрок 1", false))
         players.add(Player("Игрок 2", false))
-        players.add(Player("Игрок 3", true))
+        players.add(Player("Игрок 3", false))
         adapter?.updateDataset()
     }
 

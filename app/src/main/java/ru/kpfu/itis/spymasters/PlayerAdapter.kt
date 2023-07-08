@@ -27,14 +27,16 @@ class PlayerAdapter (private var players: ArrayList<Player>) : RecyclerView.Adap
     }
 
     fun updateDataset() {
-//        addPlayer()
         notifyDataSetChanged()
     }
 
-    fun addPlayer(){
-        var number = players.size + 1
-        var name = "Игрок " + number.toString()
-        players.add(Player(name, false))
+    fun updateText(position: Int, newName: String) {
+        players[position] = Player(newName, false)
+        notifyItemChanged(position)
+    }
+
+    fun getPlayers(): ArrayList<Player> {
+        return players
     }
 
 }

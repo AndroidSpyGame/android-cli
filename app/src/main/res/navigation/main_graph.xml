@@ -30,13 +30,14 @@
         android:name="ru.kpfu.itis.spymasters.StartGameFragment"
         android:label="fragment_start_game"
         tools:layout="@layout/fragment_start_game" >
-        <argument
-            android:name="timer"
-            app:argType="integer" />
-        <argument
-            android:name="countSpy"
-            app:argType="integer"
-            android:defaultValue="1" />
+        <action
+            android:id="@+id/action_startGameFragment_to_votingFragment"
+            app:destination="@id/votingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/votingFragment"
+        android:name="ru.kpfu.itis.spymasters.VotingFragment"
+        android:label="fragment_voting"
+        tools:layout="@layout/fragment_voting" />
 
 </navigation>
