@@ -2,8 +2,8 @@ package ru.kpfu.itis.spymasters
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ru.kpfu.itis.spymasters.databinding.FragmentMainBinding
 
@@ -26,6 +26,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
             creatorsButton.setOnClickListener {
                 navController.navigate(R.id.action_mainPageFragment_to_creatorsFragment)
+            }
+
+            // TODO: Булат, откуда это, если главный экран у Ислама в работе был
+            goGameCreationScreen.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_createGameFragment)
             }
         }
 

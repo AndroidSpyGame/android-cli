@@ -25,4 +25,9 @@
     <string name="creator_tg">Телеграм</string>
     <string name="btn_back">Назад</string>
     <string name="rules_text">Текст правил</string>
+    <string name="addPlayer">Добавить игрока</string>
+    <string name="createGame">Создать игру</string>
+    <string name="select_spy_count">Выберите количество шпионов</string>
+    <string name="select_time">Выберите время</string>
+    <string name="players">Игроки:</string>
 </resources>

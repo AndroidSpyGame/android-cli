@@ -4,10 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
     app:startDestination="@id/cardFragment">
+    <!-- TODO: Это версия Эвелины, у Булата здесь app:startDestination="@id/mainFragment" -->
 
+    <!-- TODO: Навигации Эвелины -->
     <fragment
         android:id="@+id/cardFragment"
         android:name="ru.kpfu.itis.spymasters.CardFragment"
         android:label="fragment_card"
         tools:layout="@layout/fragment_card" />
+
+    <!-- TODO: Навигация Булата -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.kpfu.itis.spymasters.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_createGameFragment"
+            app:destination="@id/createGameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="ru.kpfu.itis.spymasters.CreateGameFragment"
+        android:label="fragment_create_game"
+        tools:layout="@layout/fragment_create_game" >
+        <!--        <action-->
+        <!--            android:id="@+id/action_createGameFragment_to_startGameFragment"-->
+        <!--            app:destination="@id/startGameFragment" />-->
+        <action
+            android:id="@+id/action_createGameFragment_to_startGameFragment"
+            app:destination="@id/startGameFragment" />
+        <action
+            android:id="@+id/action_createGameFragment_to_votingFragment"
+            app:destination="@id/votingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startGameFragment"
+        android:name="ru.kpfu.itis.spymasters.StartGameFragment"
+        android:label="fragment_start_game"
+        tools:layout="@layout/fragment_start_game" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/votingFragment"
+        android:name="ru.kpfu.itis.spymasters.VotingFragment"
+        android:label="fragment_voting"
+        tools:layout="@layout/fragment_voting" />
 </navigation>
