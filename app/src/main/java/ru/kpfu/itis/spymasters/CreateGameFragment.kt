@@ -19,7 +19,6 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateGameBinding.bind(view)
-
         BackgroundAnimator.animate(binding?.createGameLayout?.background as AnimationDrawable, 10,4000)
 
         var countSpy = 1

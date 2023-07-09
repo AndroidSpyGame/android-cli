@@ -38,6 +38,7 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
                 var selectedRadBtn = radGroup.checkedRadioButtonId
                 radGroup.removeView(binding?.root?.findViewById(selectedRadBtn))
                 removePlayer(selectedRadBtn)
+                deletePlayer.isClickable = false
             }
         }
     }
