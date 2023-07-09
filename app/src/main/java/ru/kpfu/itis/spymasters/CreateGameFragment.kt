@@ -119,6 +119,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         }
     }
 
+    //Зачем он вообще нужен, если он нигде не юзается
     fun updateText(position: Int, newName: String) {
         // Сохраните newText в базе данных или в другом месте
         players[position].name = newName

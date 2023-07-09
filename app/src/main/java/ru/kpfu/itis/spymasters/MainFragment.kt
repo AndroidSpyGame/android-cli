@@ -22,15 +22,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val navController = findNavController()
         binding.run {
             rulesButton.setOnClickListener {
-                navController.navigate(R.id.action_mainPageFragment_to_rulesFragment)
+                navController.navigate(R.id.action_mainFragment_to_rulesFragment)
             }
             creatorsButton.setOnClickListener {
-                navController.navigate(R.id.action_mainPageFragment_to_creatorsFragment)
+                navController.navigate(R.id.action_mainFragment_to_creatorsFragment)
             }
-
-            // TODO: Булат, откуда это, если главный экран у Ислама в работе был
-            goGameCreationScreen.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_createGameFragment)
+            playButton.setOnClickListener {
+                navController.navigate(R.id.action_mainFragment_to_createGameFragment)
             }
         }
 

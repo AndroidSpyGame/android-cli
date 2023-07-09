@@ -24,7 +24,7 @@ class CreatorsFragment : Fragment(R.layout.fragment_creators) {
         binding.run {
             creatorsRv.adapter = adapter
             backButton.setOnClickListener {
-                findNavController().navigate(R.id.action_creatorsFragment_to_mainPageFragment)
+                findNavController().navigate(R.id.action_creatorsFragment_to_mainFragment)
             }
         }
 

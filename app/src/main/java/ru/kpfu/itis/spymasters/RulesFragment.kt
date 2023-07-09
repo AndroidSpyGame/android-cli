@@ -48,10 +48,10 @@ class RulesFragment : Fragment(R.layout.fragment_rules) {
                 }
             }
             homeButton.setOnClickListener {
-                findNavController().navigate(R.id.action_rulesFragment_to_mainPageFragment)
+                findNavController().navigate(R.id.action_rulesFragment_to_mainFragment)
             }
             backButton.setOnClickListener {
-                findNavController().navigate(R.id.action_rulesFragment_to_mainPageFragment)
+                findNavController().navigate(R.id.action_rulesFragment_to_mainFragment)
             }
         }
     }
