@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.RadioButton
 import androidx.core.view.allViews
 import androidx.core.view.marginTop
@@ -30,6 +31,8 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
         binding?.radGroup?.removeView(binding?.root?.findViewById(R.id.example))
         addRadBtn()
 
+        binding?.radGroup?.layout(10, 10, 10, 10)
+
         binding?.run {
             deletePlayer.setOnClickListener {
                 var selectedRadBtn = radGroup.checkedRadioButtonId
@@ -49,6 +52,10 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
             radioButton.setId(id)
             radioButton.setButtonDrawable(R.drawable.custom_icon)
             radioButton.setBackgroundResource(R.drawable.custome_test)
+            val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            layoutParams.setMargins(0, 20, 0, 20)
+            radioButton.layoutParams = layoutParams
             radioButton.setPadding(30)
             radioButton.setTextSize(30F)
             binding?.radGroup?.addView(radioButton)
