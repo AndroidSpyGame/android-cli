@@ -27,20 +27,19 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         initAdapter()
         binding?.run {
 
-            //  сохранение новых имен
-            players = adapter?.getPlayers()!!
-
             // генерация и переход
             createGame.setOnClickListener {
                 val bundle = Bundle()
-                randomSpy(countSpy)
+                setSpies(players, countSpy)
 
                 bundle.apply {
-                putInt("timer", timer)
+                    putInt("timer", timer)
 
-                // TODO: зачем передавать размер листа как кол-во шпионов? не совсем поняла
-                putInt("countSpy", players.size)
-                putParcelableArrayList("players", players)
+                    // TODO: зачем передавать размер листа как кол-во шпионов? не совсем поняла
+                    // TODO: не, я же передавал именно количество шпионов
+
+                    putInt("countSpy", countSpy) // тут должен быть countSpy, не знаю почему здесь size, опечатался
+                    putParcelableArrayList("players", players)
                 }
 
                 findNavController().navigate(R.id.action_createGameFragment_to_cardFragment, bundle)
@@ -119,48 +118,24 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         }
     }
 
-    //Зачем он вообще нужен, если он нигде не юзается
-    fun updateText(position: Int, newName: String) {
-        // Сохраните newText в базе данных или в другом месте
-        players[position].name = newName
-    }
+    // random spy
+    fun setSpies(players: ArrayList<Player>, count: Int) {
+        val randomIndices = mutableListOf<Int>()
+        val maxIndex = players.size - 1
 
-    private fun randomSpy(countSpy: Int){
-        if (countSpy == 1){
-            val random = (1..players.size).random()
-            players[random - 1].isSpy = true
+        // Генерируем уникальные случайные индексы элементов
+        while (randomIndices.size < count) {
+            val randomIndex = (0..maxIndex).random()
+            if (randomIndex !in randomIndices) {
+                randomIndices.add(randomIndex)
+            }
         }
-        else if (countSpy == 2){
-            val random1 = (1..players.size).random()
-            players[random1 - 1].isSpy = true
-
-            var random2 = 0
-            while ((random2 != 0) or (random1 != random2)){
-                random2 = (1..players.size).random()
-            }
-
-            players[random1].isSpy = true
-            players[random2].isSpy = true
-        }
-        else if (countSpy == 3){
-            val random1 = (1..players.size).random()
-            players[random1 - 1].isSpy = true
-
-            var random2 = 0
-            while ((random2 == 0) or (random1 == random2)){
-                random2 = (1..players.size).random()
-            }
-
-            var random3 = 0
-            while ((random3 == 0) or (random3 == random2) or (random3 == random1)){
-                random3 = (1..players.size).random()
-            }
-
-            players[random1 - 1].isSpy = true
-            players[random2 - 1].isSpy = true
-            players[random3 - 1].isSpy = true
+        // Устанавливаем isSpy в true для элементов с выбранными индексами
+        randomIndices.forEach { index ->
+            players[index].isSpy = true
         }
     }
+
 
     private fun onClickTimer(radioButton: RadioButton){
         check(true)
@@ -190,6 +165,9 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         val number = players.size + 1
         val name = "Игрок " + number.toString()
         players.add(Player(name, false))
+        adapter = PlayerAdapter(players = players)
+        binding?.rvPlayers?.adapter = adapter
+        binding?.rvPlayers?.layoutManager = GridLayoutManager(requireContext(), 2)
         adapter?.updateDataset()
     }
 }

@@ -14,6 +14,7 @@ class PlayerItem(private val binding: ItemPlayerBinding) : RecyclerView.ViewHold
             namePlayer.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                     // Ничего не делаем
+                    //player.name = s.toString()
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -23,8 +24,10 @@ class PlayerItem(private val binding: ItemPlayerBinding) : RecyclerView.ViewHold
 
                 override fun afterTextChanged(s: Editable?) {
                     // Ничего не делаем
+                    //player.name = s.toString()
                 }
             })
+
         }
     }
 

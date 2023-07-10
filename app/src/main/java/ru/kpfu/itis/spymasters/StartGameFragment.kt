@@ -1,5 +1,9 @@
 package ru.kpfu.itis.spymasters
 
+
+// этот фрагмент не нужен, так как я использовал его, для тестирования передачи игроков
+
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
