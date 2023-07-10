@@ -30,4 +30,7 @@
     <string name="select_spy_count">Выберите количество шпионов</string>
     <string name="select_time">Выберите время</string>
     <string name="players">Игроки:</string>
+    <string name="areYouSure">Вы хотите вернуться в главное меню?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

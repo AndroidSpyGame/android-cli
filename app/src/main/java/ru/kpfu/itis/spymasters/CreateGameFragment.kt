@@ -34,16 +34,16 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
             createGame.setOnClickListener {
                 val bundle = Bundle()
                 randomSpy(countSpy)
+
                 bundle.apply {
-                    putInt("timer", timer)
-                    putInt("countSpy", players.size)
-                    putParcelableArrayList("players", ArrayList(players.toList()))
+                putInt("timer", timer)
+
+                // TODO: зачем передавать размер листа как кол-во шпионов? не совсем поняла
+                putInt("countSpy", players.size)
+                putParcelableArrayList("players", players)
                 }
 
-                //action_createGameFragment_to_startGameFragment
-
-                findNavController().navigate(R.id.action_createGameFragment_to_votingFragment, bundle)
-                //findNavController().navigate(R.id.action_createGameFragment_to_startGameFragment, bundle)
+                findNavController().navigate(R.id.action_createGameFragment_to_cardFragment, bundle)
             }
 
             addPlayer.setOnClickListener {

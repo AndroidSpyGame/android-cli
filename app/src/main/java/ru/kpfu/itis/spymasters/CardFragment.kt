@@ -11,9 +11,11 @@ import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.kpfu.itis.spymasters.databinding.FragmentCardBinding
 
 
+@Suppress("DEPRECATION")
 class CardFragment : Fragment(R.layout.fragment_card) {
     private var buttonNext: Button? = null
     private var buttonStart: Button? = null
@@ -21,19 +23,16 @@ class CardFragment : Fragment(R.layout.fragment_card) {
     private var binding: FragmentCardBinding? = null
 
     private val listPlaces: List<String> = PlaceRepository.list
-    private val listPlayers: List<String> = PlayersRepository.list
     private val place: String = listPlaces[(0..listPlaces.size).random()]
 
     var counter = 0
-    var spyNumber = (listPlayers.indices).random()
 
     private var cardNewClose: CardView? = null
+
     private var cardNewOpenSpy: CardView? = null
     private var cardNewOpenSimplePlayer: CardView? = null
     private var cardCurrent: CardView? = null
-
     private var isBackOpened: Boolean = true
-
 
     @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,12 +40,16 @@ class CardFragment : Fragment(R.layout.fragment_card) {
 
         binding = FragmentCardBinding.bind(view)
 
+        // получение из бандла списка игроков
+        val players: ArrayList<Player>? = arguments?.getParcelableArrayList("players")
+
         BackgroundAnimator.animate(binding?.root?.background as AnimationDrawable, 10, 4000)
 
         buttonNext = binding?.btnNext
         buttonStart = binding?.btnStart
         binding?.tvCardBackOneOfCategory?.text = place
-        binding?.tvCardPlayer?.text = listPlayers[counter]
+
+        binding?.tvCardPlayer?.text = players?.get(counter)?.name
 
         cardNewClose = binding?.cvClosedCard
         cardNewOpenSpy = binding?.cvSpy
@@ -54,16 +57,16 @@ class CardFragment : Fragment(R.layout.fragment_card) {
 
 
         cardNewClose?.setOnClickListener {
-            if (spyNumber == counter) {
+            if (players?.get(counter)?.isSpy == true) {
                 if (isBackOpened) {
                     cardCurrent = flipCard(this.context, cardNewClose, cardNewOpenSpy)
-                    showBtnNext()
+                    showBtnNext(players)
                 } else {
                     cardCurrent = flipCard(this.context, cardNewOpenSpy, cardNewClose)
                 }
             } else {
                 if (isBackOpened) {
-                    showBtnNext()
+                    showBtnNext(players)
                     cardCurrent = flipCard(this.context, cardNewClose, cardNewOpenSimplePlayer)
                 } else {
                     cardCurrent = flipCard(this.context, cardNewOpenSimplePlayer, cardNewClose)
@@ -72,7 +75,7 @@ class CardFragment : Fragment(R.layout.fragment_card) {
         }
 
         buttonNext?.setOnClickListener {
-            if (counter == listPlayers.size - 1) {
+            if (counter == (players?.size?.minus(1) ?: Int)) { // чекнуть на корректность
                 buttonNext?.visibility = View.GONE
             } else {
                 if(!isBackOpened) {
@@ -81,7 +84,24 @@ class CardFragment : Fragment(R.layout.fragment_card) {
             }
             counter++
             buttonNext?.visibility = View.GONE
-            binding?.tvCardPlayer?.text = listPlayers[counter]
+            binding?.tvCardPlayer?.text = players?.get(counter)?.name
+        }
+
+        // переход на таймер
+        buttonStart?.setOnClickListener {
+            findNavController().navigate(R.id.action_cardFragment_to_timerFragment)
+        }
+
+        //показать правила
+        binding?.ivHelp?.setOnClickListener {
+            findNavController().navigate(R.id.action_cardFragment_to_rulesFragment)
+            isBackOpened = !isBackOpened
+        }
+
+        //"точно хотите выйти в меню?"
+        binding?.ivMenu?.setOnClickListener {
+            findNavController().navigate(R.id.action_cardFragment_to_exitToMenuFragment)
+            isBackOpened = !isBackOpened
         }
     }
 
@@ -91,8 +111,8 @@ class CardFragment : Fragment(R.layout.fragment_card) {
     }
 
     @SuppressLint("ResourceType")
-    fun showBtnNext() {
-        if (counter == listPlayers.size - 1) {
+    fun showBtnNext(players: ArrayList<Player>?) {
+        if (counter == (players?.size?.minus(1) ?: Int)) {
             buttonNext?.visibility = View.GONE
             buttonStart?.visibility = View.VISIBLE
         } else {
