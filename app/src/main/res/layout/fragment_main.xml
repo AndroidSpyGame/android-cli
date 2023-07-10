@@ -44,6 +44,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/button_style"
         android:text="@string/rules_button_text"
+        android:transitionName="@string/rules_button_text"
 
         android:textAllCaps="false"
         android:textColor="@color/black"

@@ -14,13 +14,25 @@
         tools:layout="@layout/fragment_card" >
         <action
             android:id="@+id/action_cardFragment_to_timerFragment"
-            app:destination="@id/timerFragment" />
+            app:destination="@id/timerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_cardFragment_to_exitToMenuFragment"
-            app:destination="@id/exitToMenuFragment" />
+            app:destination="@id/exitToMenuFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_cardFragment_to_rulesFragment"
-            app:destination="@id/rulesFragment" />
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!-- TODO: Навигация Булата -->
@@ -31,13 +43,25 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_createGameFragment"
-            app:destination="@id/createGameFragment" />
+            app:destination="@id/createGameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_mainFragment_to_creatorsFragment"
-            app:destination="@id/creatorsFragment" />
+            app:destination="@id/creatorsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_mainFragment_to_rulesFragment"
-            app:destination="@id/rulesFragment" />
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -53,7 +77,11 @@
             app:destination="@id/votingFragment" />
         <action
             android:id="@+id/action_createGameFragment_to_cardFragment"
-            app:destination="@id/cardFragment" />
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -67,7 +95,11 @@
         android:label="CreatorsFragment" >
         <action
             android:id="@+id/action_creatorsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
@@ -75,7 +107,11 @@
         android:label="RulesFragment" >
         <action
             android:id="@+id/action_rulesFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
@@ -88,9 +124,17 @@
         tools:layout="@layout/fragment_exit_to_menu" >
         <action
             android:id="@+id/action_exitToMenuFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_exitToMenuFragment_to_cardFragment"
-            app:destination="@id/cardFragment" />
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 </navigation>
