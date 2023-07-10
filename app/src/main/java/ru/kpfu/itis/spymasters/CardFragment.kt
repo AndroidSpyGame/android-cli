@@ -7,6 +7,7 @@ import android.content.Context
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.core.animation.doOnEnd
@@ -133,11 +134,13 @@ class CardFragment : Fragment(R.layout.fragment_card) {
                     R.animator.flip_out
                 ) as AnimatorSet
             flipOutAnimatorSet.setTarget(closedCard)
+            //flipOutAnimatorSet.interpolator = AccelerateDecelerateInterpolator()
             val flipInAnimatorSet =
                 AnimatorInflater.loadAnimator(
                     context,
                     R.animator.flip_in
                 ) as AnimatorSet
+            //flipInAnimatorSet.interpolator = AccelerateDecelerateInterpolator()
             flipOutAnimatorSet.start()
 
             flipInAnimatorSet.setTarget(openedCard)
