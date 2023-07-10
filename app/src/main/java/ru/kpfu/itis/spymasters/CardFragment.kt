@@ -95,13 +95,17 @@ class CardFragment : Fragment(R.layout.fragment_card) {
         //показать правила
         binding?.ivHelp?.setOnClickListener {
             findNavController().navigate(R.id.action_cardFragment_to_rulesFragment)
-            isBackOpened = !isBackOpened
+            if (!isBackOpened) {
+                isBackOpened = !isBackOpened
+            }
         }
 
         //"точно хотите выйти в меню?"
         binding?.ivMenu?.setOnClickListener {
             findNavController().navigate(R.id.action_cardFragment_to_exitToMenuFragment)
-            isBackOpened = !isBackOpened
+            if (!isBackOpened) {
+                isBackOpened = !isBackOpened
+            }
         }
     }
 
