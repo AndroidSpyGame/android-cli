@@ -33,4 +33,6 @@
     <string name="areYouSure">Вы хотите вернуться в главное меню?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="removePlayer">Выгнать игрока</string>
+    <string name="voting">Голосование</string>
 </resources>

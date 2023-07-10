@@ -37,13 +37,10 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
     }
 
     private fun addRadBtn() {
-        var i = 0 // TODO: Почему i не изменяется по итогу? Можно просто 0 ставить вместо i. Что не учтено?
         for (item: Player in players!!){
             val radioButton = RadioButton(context)
             val id = View.generateViewId()
-            players!![i].id = id
             radioButton.setText(item.name)
-            radioButton.setId(id)
             radioButton.setButtonDrawable(R.drawable.custom_icon)
             radioButton.setBackgroundResource(R.drawable.custome_test)
             val layoutParams = LinearLayout.LayoutParams(
