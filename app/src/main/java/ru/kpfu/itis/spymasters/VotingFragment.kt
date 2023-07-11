@@ -45,6 +45,8 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
                     radGroup.removeView(binding?.root?.findViewById(selectedRadBtn))
                     removePlayer(selectedRadBtn)
                     removedCounter++
+
+                    Log.d("VotingFragment", players?.size.toString())
                     if (removedCounter >= countSpy) toFinishFragment()
                 } else toFinishFragment()
             }
@@ -83,8 +85,9 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
         if (players == null) return
         for (item: Player in players!!) {
             val radioButton = RadioButton(context)
-            val id =
-                View.generateViewId() // TODO: Зачем здесь получают id, если потом не используется?
+            val id = View.generateViewId() // TODO: Зачем здесь получают id, если потом не используется?
+            radioButton.setId(id)
+            item.id = id
             radioButton.text = item.name
             radioButton.setButtonDrawable(R.drawable.custom_icon)
             radioButton.setBackgroundResource(R.drawable.custome_test)
@@ -97,12 +100,16 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
             radioButton.textSize = 30F
             binding?.radGroup?.addView(radioButton)
         }
+
+        Log.d("VotingFragment", "AddRadBtn")
+
     }
 
     private fun removePlayer(id: Int) {
         for (i in (0 until players!!.size)) {
             if (players!![i].id == id) {
                 selected.add(players!![i])
+                Log.d("VotingFragment", players!![i].name.toString())
                 players!!.removeAt(i)
                 break
             }
