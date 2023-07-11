@@ -66,11 +66,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/custome_test"
-                android:button="@drawable/custom_icon"
                 android:paddingHorizontal="10dp"
                 android:text="Example"
                 android:textSize="20sp" />
-
+<!--            android:button="@drawable/custom_icon"-->
         </RadioGroup>
 
     </ScrollView>

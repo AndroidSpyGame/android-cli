@@ -99,11 +99,10 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
         if (players == null) return
         for (item: Player in players!!) {
             val radioButton = RadioButton(context)
-            val id = View.generateViewId() // TODO: Зачем здесь получают id, если потом не используется?
+            val id = View.generateViewId()
             radioButton.setId(id)
             item.id = id
             radioButton.text = item.name
-            radioButton.setButtonDrawable(R.drawable.custom_icon)
             radioButton.setBackgroundResource(R.drawable.custome_test)
             val layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
