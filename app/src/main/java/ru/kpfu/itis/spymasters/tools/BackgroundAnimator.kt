@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.tools
 
 import android.graphics.drawable.AnimationDrawable
 
@@ -10,7 +10,8 @@ object BackgroundAnimator {
     fun animate(
         animationDrawable: AnimationDrawable,
         enterFadeDuration: Int = DEFAULT_ENTER_FADE_DURATION,
-        exitFadeDuration: Int = DEFAULT_EXIT_FADE_DURATION) {
+        exitFadeDuration: Int = DEFAULT_EXIT_FADE_DURATION
+    ) {
         animationDrawable.setEnterFadeDuration(enterFadeDuration)
         animationDrawable.setExitFadeDuration(exitFadeDuration)
         animationDrawable.start()

@@ -44,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:fontFamily="@font/rubik_light"
+                    android:fontFamily="@font/rubik_300"
                     android:text="@string/creator_name"
                     android:textSize="16sp" />
 
@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:fontFamily="@font/rubik_light"
+                    android:fontFamily="@font/rubik_300"
                     android:text="@string/creator_surname"
                     android:textSize="16sp" />
 
@@ -62,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:fontFamily="@font/rubik_light"
+                    android:fontFamily="@font/rubik_300"
                     android:text="@string/creator_tg"
                     android:textSize="16sp" />
 

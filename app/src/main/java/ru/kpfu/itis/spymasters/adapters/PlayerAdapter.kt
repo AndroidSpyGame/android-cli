@@ -1,9 +1,11 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.kpfu.itis.spymasters.items.PlayerItem
 import ru.kpfu.itis.spymasters.databinding.ItemPlayerBinding
+import ru.kpfu.itis.spymasters.entities.Player
 
 class PlayerAdapter (private var players: ArrayList<Player>) : RecyclerView.Adapter<PlayerItem>(){
 

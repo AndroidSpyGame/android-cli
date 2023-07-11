@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_list"
-    tools:context=".VotingFragment">
+    tools:context=".game_process_fragments.VotingFragment">
 
     <TextView
         android:id="@+id/textVoting"
@@ -54,7 +54,7 @@
             android:id="@+id/radGroup"
             android:layout_width="wrap_content"
             android:layout_height="300dp"
-            android:fontFamily="@font/rubik_light"
+            android:fontFamily="@font/rubik_300"
             android:padding="20dp"
             app:layout_constraintBottom_toTopOf="@+id/deletePlayer"
             app:layout_constraintEnd_toEndOf="parent"

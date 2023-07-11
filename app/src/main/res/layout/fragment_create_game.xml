@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_list"
-    tools:context=".CreateGameFragment">
+    tools:context=".game_process_fragments.CreateGameFragment">
 <!--    android:background="@color/backgroundCreationScreen"-->
     <ImageView
         android:id="@+id/imageView"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
-        android:fontFamily="@font/rubik_light"
+        android:fontFamily="@font/rubik_300"
         android:text="@string/select_spy_count"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/rubik_light"
+        android:fontFamily="@font/rubik_300"
         android:text="@string/app_name"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:fontFamily="@font/rubik_light"
+        android:fontFamily="@font/rubik_300"
         android:text="@string/select_time"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -203,7 +203,7 @@
         android:layout_height="wrap_content"
         android:text="@string/createGame"
         android:layout_marginHorizontal="30dp"
-        android:fontFamily="@font/rubik_light"
+        android:fontFamily="@font/rubik_300"
         android:textSize="20sp"
         android:drawableStart="@drawable/icon_create_game"
         android:background="@drawable/button_style"
@@ -221,7 +221,7 @@
         android:layout_marginHorizontal="30dp"
         android:backgroundTint="@color/btnAddPlayer"
         android:drawableStart="@drawable/icon_add_player"
-        android:fontFamily="@font/rubik_light"
+        android:fontFamily="@font/rubik_300"
         android:text="@string/addPlayer"
         android:textSize="20sp"
         android:background="@drawable/button_style"

@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.entities
 
 data class Creator(
     val name: String,

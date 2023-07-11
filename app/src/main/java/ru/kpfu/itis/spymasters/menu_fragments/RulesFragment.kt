@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.menu_fragments
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
+import ru.kpfu.itis.spymasters.R
+import ru.kpfu.itis.spymasters.repositories.RulesRepository
 import ru.kpfu.itis.spymasters.databinding.FragmentRulesBinding
 
 
@@ -18,7 +21,8 @@ class RulesFragment : Fragment(R.layout.fragment_rules) {
         binding = FragmentRulesBinding.bind(view)
 
         BackgroundAnimator.animate(
-            binding.rulesFragmentLayout.background as AnimationDrawable)
+            binding.rulesFragmentLayout.background as AnimationDrawable
+        )
 
         //Page flipping through functionality
         val pages = RulesRepository.list
@@ -51,7 +55,7 @@ class RulesFragment : Fragment(R.layout.fragment_rules) {
                 findNavController().navigate(R.id.action_rulesFragment_to_mainFragment)
             }
             backButton.setOnClickListener {
-                findNavController().navigate(R.id.action_rulesFragment_to_mainFragment)
+                requireActivity().onBackPressed()
             }
         }
     }

@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.repositories
 
 object RulesRepository {
     val list: List<String> = listOf(

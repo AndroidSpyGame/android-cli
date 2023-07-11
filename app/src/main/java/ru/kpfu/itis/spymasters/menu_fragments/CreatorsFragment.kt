@@ -1,10 +1,13 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.menu_fragments
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
+import ru.kpfu.itis.spymasters.adapters.CreatorsAdapter
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentCreatorsBinding
 
 
@@ -19,7 +22,8 @@ class CreatorsFragment : Fragment(R.layout.fragment_creators) {
         adapter = CreatorsAdapter()
 
         BackgroundAnimator.animate(
-            binding.creatorsFragmentLayout.background as AnimationDrawable)
+            binding.creatorsFragmentLayout.background as AnimationDrawable
+        )
 
         binding.run {
             creatorsRv.adapter = adapter

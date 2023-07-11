@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.game_process_fragments
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -9,7 +9,10 @@ import android.widget.RadioButton
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentVotingBinding
+import ru.kpfu.itis.spymasters.entities.Player
 
 @Suppress("DEPRECATION")
 class VotingFragment : Fragment(R.layout.fragment_voting) {
@@ -66,7 +69,8 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
                     FinishFragment.IS_CIVILIANS_WON,
                     accuracyOfSelected(countSpy)
                 )
-                putParcelableArrayList(FinishFragment.SPIES_LIST,
+                putParcelableArrayList(
+                    FinishFragment.SPIES_LIST,
                     sortedPlayers?.let { ArrayList(it) })
             }
         }
