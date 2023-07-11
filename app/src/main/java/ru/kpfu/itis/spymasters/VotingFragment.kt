@@ -47,13 +47,13 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
                     removedCounter++
 
                     Log.d("VotingFragment", players?.size.toString())
-                    if (removedCounter >= countSpy) toFinishFragment()
-                } else toFinishFragment()
+                    if (removedCounter >= countSpy) toFinishFragment(countSpy)
+                } else toFinishFragment(countSpy)
             }
         }
     }
 
-    private fun toFinishFragment() {
+    private fun toFinishFragment(countSpy: Int) {
         val bundle = Bundle()
         bundle.apply {
             if (players != null) {
@@ -64,13 +64,27 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
                 selected = tempList
                 if (sortedPlayers != null) putBoolean(
                     FinishFragment.IS_CIVILIANS_WON,
-                    isSameSpyLists(selected, sortedPlayers)
+                    accuracyOfSelected(countSpy)
                 )
                 putParcelableArrayList(FinishFragment.SPIES_LIST,
                     sortedPlayers?.let { ArrayList(it) })
             }
         }
         findNavController().navigate(R.id.action_votingFragment_to_finishFragment, bundle)
+    }
+
+    private fun accuracyOfSelected(countSpy: Int) : Boolean {
+        var count = 0
+
+        for (item: Player in selected){
+            if (item.isSpy) count++
+        }
+
+
+        Log.d("VotingFragment", count.toString())
+        Log.d("VotingFragment", count.toString())
+
+        return count == countSpy
     }
 
     private fun isSameSpyLists(selected: ArrayList<Player>, spies: List<Player>): Boolean {
@@ -110,7 +124,6 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
             if (players!![i].id == id) {
                 selected.add(players!![i])
                 Log.d("VotingFragment", players!![i].name.toString())
-                players!!.removeAt(i)
                 break
             }
         }

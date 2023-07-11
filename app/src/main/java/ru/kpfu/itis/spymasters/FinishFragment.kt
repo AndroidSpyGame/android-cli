@@ -2,6 +2,7 @@ package ru.kpfu.itis.spymasters
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,6 +20,7 @@ class FinishFragment : Fragment(R.layout.fragment_finish) {
         BackgroundAnimator.animate(binding?.finishFragmentLayout?.background as AnimationDrawable)
 
         isCiviliansWon = arguments?.getBoolean(IS_CIVILIANS_WON)
+        Log.d("FinishFragment", isCiviliansWon.toString())
         @Suppress("DEPRECATION")
         spies = arguments?.getParcelableArrayList(SPIES_LIST)
 
