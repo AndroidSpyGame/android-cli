@@ -54,7 +54,7 @@
             android:id="@+id/radGroup"
             android:layout_width="wrap_content"
             android:layout_height="300dp"
-            android:fontFamily="@font/rubik_light"
+            android:fontFamily="@font/rubik_300"
             android:padding="20dp"
             app:layout_constraintBottom_toTopOf="@+id/deletePlayer"
             app:layout_constraintEnd_toEndOf="parent"

@@ -33,7 +33,7 @@
                 android:background="@android:color/background_dark"
                 android:gravity="center"
                 android:text="@string/player"
-                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:fontFamily="@font/rubik_300"
                 android:textColor="@android:color/white"
                 android:textSize="40sp" />
 
@@ -75,7 +75,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:textStyle="bold"
                 android:textSize="32sp"
-                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:fontFamily="@font/rubik_300"
                 android:textColor="@color/red_not_visible_brighter" />
 
             <TextView
@@ -85,7 +85,7 @@
                 android:gravity="center"
                 android:layout_marginTop="160dp"
                 android:layout_marginHorizontal="20dp"
-                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:fontFamily="@font/rubik_300"
                 android:text="@string/guess"
                 android:textStyle="bold"
                 android:textSize="32sp"
@@ -123,7 +123,7 @@
                 android:layout_marginTop="100dp"
                 android:gravity="center"
                 android:text="@string/oneOfCategory"
-                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:fontFamily="@font/rubik_300"
                 android:textStyle="bold"
                 android:textSize="32sp"
                 android:textColor="@color/white" />
@@ -135,7 +135,7 @@
                 android:gravity="center"
                 android:layout_marginBottom="100dp"
                 android:text="@string/Category"
-                android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+                android:fontFamily="@font/rubik_300"
                 android:textStyle="bold"
                 android:textSize="32sp"
                 android:textColor="@color/white" />
@@ -152,7 +152,7 @@
         android:background="@drawable/button_style"
         android:foreground="?selectableItemBackground"
         android:text="@string/next"
-        android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+        android:fontFamily="@font/rubik_300"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:backgroundTint="@color/white"
@@ -170,7 +170,7 @@
         android:background="@drawable/button_style"
         android:foreground="?selectableItemBackground"
         android:text="@string/go"
-        android:fontFamily="@font/rubik_v28_arabic_cyrillic_cyrillic_ext_hebrew_latin_latin_ext_300"
+        android:fontFamily="@font/rubik_300"
         android:textSize="36sp"
         android:textStyle="bold"
         android:visibility="gone"
