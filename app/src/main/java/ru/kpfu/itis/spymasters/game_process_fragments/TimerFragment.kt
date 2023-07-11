@@ -6,10 +6,10 @@ import android.os.CountDownTimer
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
-import ru.kpfu.itis.spymasters.entities.Player
 import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentTimerBinding
+import ru.kpfu.itis.spymasters.entities.Player
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
     private var binding: FragmentTimerBinding? = null
@@ -37,12 +37,12 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         if (savedInstanceState != null) {
             isTimerRunning = savedInstanceState.getBoolean(KEY_TIMER_RUNNING)
             remainingTimeInMillis = savedInstanceState.getLong(KEY_REMAINING_TIME)
+            if (isTimerRunning) resumeTimer()
         } else {
             isTimerRunning = true
+            resumeTimer()
+            updateTimerUI(remainingTimeInMillis)
         }
-
-        if (isTimerRunning) startTimer(remainingTimeInMillis)
-        else updateTimerUI(remainingTimeInMillis)
 
         binding?.ivPause?.setOnClickListener {
             if (isTimerRunning) pauseTimer()
@@ -54,7 +54,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         }
 
         binding?.ivMenu?.setOnClickListener {
-            findNavController().navigate(R.id.action_timerFragment_to_exitToMenuFragment)
+            findNavController().navigate(R.id.action_timerFragment_to_mainFragment)
         }
 
         binding?.ivHelp?.setOnClickListener {
@@ -113,12 +113,23 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        pauseTimer()
         outState.putBoolean(KEY_TIMER_RUNNING, isTimerRunning)
         outState.putLong(KEY_REMAINING_TIME, remainingTimeInMillis)
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        if (savedInstanceState != null) {
+            isTimerRunning = savedInstanceState.getBoolean(KEY_TIMER_RUNNING)
+            remainingTimeInMillis = savedInstanceState.getLong(KEY_REMAINING_TIME)
+            if (isTimerRunning) resumeTimer()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        pauseTimer()
         binding = null
     }
 
