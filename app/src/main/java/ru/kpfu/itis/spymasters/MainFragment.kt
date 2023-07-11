@@ -16,8 +16,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         binding = FragmentMainBinding.bind(view)
 
-        BackgroundAnimator.animate(
-            binding.mainFragmentLayout.background as AnimationDrawable)
+        BackgroundAnimator.animate(binding.mainFragmentLayout.background as AnimationDrawable)
 
         val navController = findNavController()
         binding.run {

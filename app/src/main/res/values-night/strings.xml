@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="areYouSure">Вы хотите вернуться в главное меню?</string>
+    <string name="areYouSure">Are you sure?</string>
 </resources>

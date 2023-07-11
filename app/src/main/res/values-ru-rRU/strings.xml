@@ -35,4 +35,10 @@
     <string name="no">No</string>
     <string name="removePlayer">Выгнать игрока</string>
     <string name="voting">Голосование</string>
+    <string name="game_end_win">Вы угадали!</string>
+    <string name="game_end_loss">Вы не угадали :(</string>
+    <string name="game_end_spy_header">Шпионами были:</string>
+    <string name="game_end_menu">Главное меню</string>
+    <string name="game_end_spy_example">Шпионы...</string>
+    <string name="game_end_error">Что-то пошло не так .. :(</string>
 </resources>

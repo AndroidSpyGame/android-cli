@@ -88,7 +88,15 @@
         android:id="@+id/votingFragment"
         android:name="ru.kpfu.itis.spymasters.VotingFragment"
         android:label="fragment_voting"
-        tools:layout="@layout/fragment_voting" />
+        tools:layout="@layout/fragment_voting" >
+        <action
+            android:id="@+id/action_votingFragment_to_finishFragment"
+            app:destination="@id/finishFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/creatorsFragment"
         android:name="ru.kpfu.itis.spymasters.CreatorsFragment"
@@ -116,7 +124,29 @@
     <fragment
         android:id="@+id/timerFragment"
         android:name="ru.kpfu.itis.spymasters.TimerFragment"
-        android:label="TimerFragment" />
+        android:label="TimerFragment" >
+        <action
+            android:id="@+id/action_timerFragment_to_votingFragment"
+            app:destination="@id/votingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_timerFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_timerFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/exitToMenuFragment"
         android:name="ru.kpfu.itis.spymasters.ExitToMenuFragment"
@@ -136,5 +166,17 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="ru.kpfu.itis.spymasters.FinishFragment"
+        android:label="FinishFragment" >
+        <action
+            android:id="@+id/action_finishFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 </navigation>

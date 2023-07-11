@@ -29,9 +29,15 @@
     <string name="select_spy_count">Select the number of spies</string>
     <string name="select_time">Select time</string>
     <string name="players">Players:</string>
-    <string name="areYouSure">Вы хотите вернуться в главное меню?</string>
+    <string name="areYouSure">Are you sure?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="removePlayer">Kick out a player</string>
     <string name="voting">Voting</string>
+    <string name="game_end_win">You guessed it!</string>
+    <string name="game_end_loss">You guessed wrong :(</string>
+    <string name="game_end_spy_header">The spies were:</string>
+    <string name="game_end_menu">Menu</string>
+    <string name="game_end_spy_example">Spies...</string>
+    <string name="game_end_error">Sorry. Something went wrong... :(</string>
 </resources>

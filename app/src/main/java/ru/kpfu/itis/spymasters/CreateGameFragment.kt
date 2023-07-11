@@ -34,11 +34,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
                 bundle.apply {
                     putInt("timer", timer)
-
-                    // TODO: зачем передавать размер листа как кол-во шпионов? не совсем поняла
-                    // TODO: не, я же передавал именно количество шпионов
-
-                    putInt("countSpy", countSpy) // тут должен быть countSpy, не знаю почему здесь size, опечатался
+                    putInt("countSpy", countSpy)
                     putParcelableArrayList("players", players)
                 }
 
@@ -164,7 +160,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     private fun addPlayer(){
         val number = players.size + 1
         val name = "Игрок " + number.toString()
-        players.add(Player(name, false))
+        players.add(Player(name = name, isSpy = false, id = number))
         adapter = PlayerAdapter(players = players)
         binding?.rvPlayers?.adapter = adapter
         binding?.rvPlayers?.layoutManager = GridLayoutManager(requireContext(), 2)

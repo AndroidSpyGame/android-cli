@@ -43,6 +43,8 @@ class CardFragment : Fragment(R.layout.fragment_card) {
 
         // получение из бандла списка игроков
         val players: ArrayList<Player>? = arguments?.getParcelableArrayList("players")
+        val timer: Int? = arguments?.getInt("timer")
+        val countSpy: Int? = arguments?.getInt("countSpy")
 
         BackgroundAnimator.animate(binding?.root?.background as AnimationDrawable, 10, 4000)
 
@@ -90,7 +92,18 @@ class CardFragment : Fragment(R.layout.fragment_card) {
 
         // переход на таймер
         buttonStart?.setOnClickListener {
-            findNavController().navigate(R.id.action_cardFragment_to_timerFragment)
+            val bundle = Bundle()
+
+            bundle.apply {
+                if (timer != null) {
+                    putInt("timer", timer)
+                }
+                if (countSpy != null) {
+                    putInt("countSpy", countSpy)
+                }
+                putParcelableArrayList("players", players)
+            }
+            findNavController().navigate(R.id.action_cardFragment_to_timerFragment, bundle)
         }
 
         //показать правила

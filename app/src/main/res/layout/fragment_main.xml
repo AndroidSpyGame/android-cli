@@ -8,8 +8,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_list"
     tools:context=".MainFragment">
-    <!-- TODO: У булата это "@+id/frameLayout" -->
-
 
     <TextView
         android:id="@+id/spymasters_text"

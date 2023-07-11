@@ -1,9 +1,11 @@
 package ru.kpfu.itis.spymasters
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.kpfu.itis.spymasters.databinding.FragmentTimerBinding
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
@@ -11,12 +13,22 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private var isTimerRunning = false
     private var remainingTimeInMillis: Long = 0
     private lateinit var timer: CountDownTimer
+    private var playersFromBundle: ArrayList<Player>? = null
+    private var timerFromBundle: Int? = null
+    private var countSpyFromBundle: Int? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentTimerBinding.bind(view)
 
-        val timerMinutes = arguments?.getInt("TIMER_MINUTES") ?: 0
+        BackgroundAnimator.animate(binding?.timerFragmentLayout?.background as AnimationDrawable)
+
+        @Suppress("DEPRECATION")
+        playersFromBundle = arguments?.getParcelableArrayList("players")
+        timerFromBundle = arguments?.getInt("timer")
+        countSpyFromBundle = arguments?.getInt("countSpy")
+
+        val timerMinutes = timerFromBundle ?: 0
         remainingTimeInMillis = timerMinutes * 60 * 1000.toLong()
 
         if (savedInstanceState != null) {
@@ -32,6 +44,18 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         binding?.ivPause?.setOnClickListener {
             if (isTimerRunning) pauseTimer()
             else resumeTimer()
+        }
+
+        binding?.btnFinishGame?.setOnClickListener {
+            finishTimer()
+        }
+
+        binding?.ivMenu?.setOnClickListener {
+            findNavController().navigate(R.id.action_timerFragment_to_mainFragment)
+        }
+
+        binding?.ivHelp?.setOnClickListener {
+            findNavController().navigate(R.id.action_timerFragment_to_rulesFragment)
         }
     }
 
@@ -53,13 +77,26 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             }
 
             override fun onFinish() {
-                isTimerRunning = false
-                updateTimerUI(0)
-                TODO("Not yet implemented")
+                finishTimer()
             }
         }.start()
 
         isTimerRunning = true
+    }
+
+    private fun finishTimer() {
+        isTimerRunning = false
+        updateTimerUI(0)
+
+        val bundle = Bundle()
+        bundle.apply {
+            if (timerFromBundle != null) putInt("timer", timerFromBundle!!)
+            if (countSpyFromBundle != null) putInt("countSpy", countSpyFromBundle!!)
+            if (playersFromBundle != null) putParcelableArrayList("players", playersFromBundle)
+        }
+
+
+        findNavController().navigate(R.id.action_timerFragment_to_votingFragment, bundle)
     }
 
     private fun updateTimerUI(timeInMillis: Long) {
