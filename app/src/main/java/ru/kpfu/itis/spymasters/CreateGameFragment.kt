@@ -160,7 +160,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     private fun addPlayer(){
         val number = players.size + 1
         val name = "Игрок " + number.toString()
-        players.add(Player(name = name, isSpy = false, id = number))
+        players.add(Player(name = name, isSpy = false, votingId = number))
         adapter = PlayerAdapter(players = players)
         binding?.rvPlayers?.adapter = adapter
         binding?.rvPlayers?.layoutManager = GridLayoutManager(requireContext(), 2)

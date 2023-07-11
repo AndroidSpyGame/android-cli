@@ -2,6 +2,7 @@ package ru.kpfu.itis.spymasters
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.RadioButton
@@ -14,6 +15,7 @@ import ru.kpfu.itis.spymasters.databinding.FragmentVotingBinding
 class VotingFragment : Fragment(R.layout.fragment_voting) {
     private var binding: FragmentVotingBinding? = null
     private var players: ArrayList<Player>? = null
+    private var allPlayers: ArrayList<Player>? = null
     private var selected: ArrayList<Player> = ArrayList()
     private var removedCounter: Int = 0
 
@@ -25,6 +27,10 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
         BackgroundAnimator.animate(binding?.votingLayout?.background as AnimationDrawable, 10, 4000)
 
         players = arguments?.getParcelableArrayList<Player>("players")
+        if (players != null) {
+            allPlayers = ArrayList()
+            allPlayers!!.addAll(players!!)
+        }
         binding?.radGroup?.removeView(binding?.root?.findViewById(R.id.example))
         addRadBtn()
 
@@ -49,11 +55,18 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
         val bundle = Bundle()
         bundle.apply {
             if (players != null) {
-                val sortedPlayers = players?.filter { o -> o.isSpy }?.sortedBy { o -> o.id }
-                selected = ArrayList(selected.sortedBy { o -> o.id })
-                if (sortedPlayers != null) putBoolean(FinishFragment.IS_CIVILIANS_WON, isSameSpyLists(selected, sortedPlayers))
+                val sortedPlayers =
+                    allPlayers?.filter { o -> o.isSpy }?.sortedBy { o -> o.name }
+                var tempList = ArrayList<Player>()
+                tempList.addAll(selected.sortedBy { o -> o.name })
+                selected = tempList
+                if (sortedPlayers != null) putBoolean(
+                    FinishFragment.IS_CIVILIANS_WON,
+                    isSameSpyLists(selected, sortedPlayers)
+                )
+                putParcelableArrayList(FinishFragment.SPIES_LIST,
+                    sortedPlayers?.let { ArrayList(it) })
             }
-            if (selected != null) putParcelableArrayList(FinishFragment.SPIES_LIST, selected)
         }
         findNavController().navigate(R.id.action_votingFragment_to_finishFragment, bundle)
     }
@@ -61,7 +74,7 @@ class VotingFragment : Fragment(R.layout.fragment_voting) {
     private fun isSameSpyLists(selected: ArrayList<Player>, spies: List<Player>): Boolean {
         if (selected.size != spies.size) return false
         for (i in 0 until selected.size) {
-            if (selected[i].id != spies[i].id) return false
+            if (!selected[i].name.equals(spies[i].name)) return false
         }
         return true
     }
