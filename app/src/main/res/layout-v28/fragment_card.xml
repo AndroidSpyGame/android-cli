@@ -143,7 +143,7 @@
         </androidx.cardview.widget.CardView>
     </FrameLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -155,14 +155,13 @@
         android:fontFamily="@font/rubik_300"
         android:textColor="@color/black"
         android:textSize="28sp"
-        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -174,7 +173,6 @@
         android:textSize="36sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:backgroundTint="@color/red_not_visible"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
