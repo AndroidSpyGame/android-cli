@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.game_process_fragments
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.os.CountDownTimer
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
+import ru.kpfu.itis.spymasters.entities.Player
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentTimerBinding
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
@@ -51,7 +54,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         }
 
         binding?.ivMenu?.setOnClickListener {
-            findNavController().navigate(R.id.action_timerFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_timerFragment_to_exitToMenuFragment)
         }
 
         binding?.ivHelp?.setOnClickListener {

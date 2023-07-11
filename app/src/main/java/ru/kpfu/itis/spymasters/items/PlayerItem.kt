@@ -1,9 +1,10 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.items
 
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.recyclerview.widget.RecyclerView
 import ru.kpfu.itis.spymasters.databinding.ItemPlayerBinding
+import ru.kpfu.itis.spymasters.entities.Player
 
 class PlayerItem(private val binding: ItemPlayerBinding) : RecyclerView.ViewHolder(binding.root) {
     fun onBind(player: Player){

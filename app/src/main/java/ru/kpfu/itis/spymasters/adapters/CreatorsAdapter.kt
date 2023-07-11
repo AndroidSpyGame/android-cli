@@ -1,10 +1,13 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.CreatorItemBinding
+import ru.kpfu.itis.spymasters.entities.Creator
+import ru.kpfu.itis.spymasters.repositories.CreatorsRepository
 
 class CreatorsAdapter : RecyclerView.Adapter<CreatorsAdapter.CreatorHolder>() {
 

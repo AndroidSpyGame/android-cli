@@ -1,4 +1,7 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.repositories
+
+import ru.kpfu.itis.spymasters.R
+import ru.kpfu.itis.spymasters.entities.Creator
 
 object CreatorsRepository {
     val creatorsList: List<Creator> = listOf(
@@ -6,24 +9,28 @@ object CreatorsRepository {
             "Ислам",
             "Багавиев",
             "@Weirdn3ss",
-            R.drawable.developer),
+            R.drawable.developer
+        ),
 
         Creator(
             "Эвелина",
             "Дереженко",
             "@EviM6",
-            R.drawable.developer),
+            R.drawable.developer
+        ),
 
         Creator(
             "Булат",
             "Субуханкулов",
             "@ForeverestlllBulat",
-            R.drawable.developer),
+            R.drawable.developer
+        ),
 
         Creator(
             "Георгий",
             "Козобродов",
             "@vaihdass",
-            R.drawable.developer)
+            R.drawable.developer
+        )
     )
 }

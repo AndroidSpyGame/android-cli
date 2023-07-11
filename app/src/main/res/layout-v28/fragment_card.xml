@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_list"
-    tools:context=".CardFragment">
+    tools:context=".game_process_fragments.CardFragment">
 
     <FrameLayout
         android:id="@+id/frameLayout"

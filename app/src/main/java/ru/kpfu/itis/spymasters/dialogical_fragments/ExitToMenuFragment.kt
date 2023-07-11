@@ -1,12 +1,10 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.dialogical_fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import ru.kpfu.itis.spymasters.databinding.FragmentCardBinding
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentExitToMenuBinding
 
 class ExitToMenuFragment : Fragment(R.layout.fragment_exit_to_menu) {

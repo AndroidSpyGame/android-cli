@@ -1,10 +1,12 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.menu_fragments
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentMainBinding
 
 class MainFragment : Fragment(R.layout.fragment_main) {

@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.game_process_fragments
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.view.View
 import android.widget.RadioButton
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import ru.kpfu.itis.spymasters.tools.BackgroundAnimator
+import ru.kpfu.itis.spymasters.entities.Player
+import ru.kpfu.itis.spymasters.adapters.PlayerAdapter
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentCreateGameBinding
 
 class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
@@ -20,7 +24,11 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateGameBinding.bind(view)
 
-        BackgroundAnimator.animate(binding?.createGameLayout?.background as AnimationDrawable, 10,4000)
+        BackgroundAnimator.animate(
+            binding?.createGameLayout?.background as AnimationDrawable,
+            10,
+            4000
+        )
 
         var countSpy = 1
         var timer = 5

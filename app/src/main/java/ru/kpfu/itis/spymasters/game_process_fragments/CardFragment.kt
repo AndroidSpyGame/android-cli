@@ -1,4 +1,4 @@
-package ru.kpfu.itis.spymasters
+package ru.kpfu.itis.spymasters.game_process_fragments
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
@@ -7,12 +7,14 @@ import android.content.Context
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import ru.kpfu.itis.spymasters.repositories.PlaceRepository
+import ru.kpfu.itis.spymasters.entities.Player
+import ru.kpfu.itis.spymasters.R
 import ru.kpfu.itis.spymasters.databinding.FragmentCardBinding
 
 

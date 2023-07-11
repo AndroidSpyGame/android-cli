@@ -9,7 +9,7 @@
     <!-- TODO: Навигации Эвелины -->
     <fragment
         android:id="@+id/cardFragment"
-        android:name="ru.kpfu.itis.spymasters.CardFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.CardFragment"
         android:label="fragment_card"
         tools:layout="@layout/fragment_card" >
         <action
@@ -38,7 +38,7 @@
     <!-- TODO: Навигация Булата -->
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.kpfu.itis.spymasters.MainFragment"
+        android:name="ru.kpfu.itis.spymasters.menu_fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -66,7 +66,7 @@
 
     <fragment
         android:id="@+id/createGameFragment"
-        android:name="ru.kpfu.itis.spymasters.CreateGameFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.CreateGameFragment"
         android:label="fragment_create_game"
         tools:layout="@layout/fragment_create_game" >
         <!--        <action-->
@@ -86,7 +86,7 @@
 
     <fragment
         android:id="@+id/votingFragment"
-        android:name="ru.kpfu.itis.spymasters.VotingFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.VotingFragment"
         android:label="fragment_voting"
         tools:layout="@layout/fragment_voting" >
         <action
@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/creatorsFragment"
-        android:name="ru.kpfu.itis.spymasters.CreatorsFragment"
+        android:name="ru.kpfu.itis.spymasters.menu_fragments.CreatorsFragment"
         android:label="CreatorsFragment" >
         <action
             android:id="@+id/action_creatorsFragment_to_mainFragment"
@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
-        android:name="ru.kpfu.itis.spymasters.RulesFragment"
+        android:name="ru.kpfu.itis.spymasters.menu_fragments.RulesFragment"
         android:label="RulesFragment" >
         <action
             android:id="@+id/action_rulesFragment_to_mainFragment"
@@ -123,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
-        android:name="ru.kpfu.itis.spymasters.TimerFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.TimerFragment"
         android:label="TimerFragment" >
         <action
             android:id="@+id/action_timerFragment_to_votingFragment"
@@ -146,10 +146,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_timerFragment_to_exitToMenuFragment"
+            app:destination="@id/exitToMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/exitToMenuFragment"
-        android:name="ru.kpfu.itis.spymasters.ExitToMenuFragment"
+        android:name="ru.kpfu.itis.spymasters.dialogical_fragments.ExitToMenuFragment"
         android:label="fragment_exit_to_menu"
         tools:layout="@layout/fragment_exit_to_menu" >
         <action
@@ -169,7 +172,7 @@
     </fragment>
     <fragment
         android:id="@+id/finishFragment"
-        android:name="ru.kpfu.itis.spymasters.FinishFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.FinishFragment"
         android:label="FinishFragment" >
         <action
             android:id="@+id/action_finishFragment_to_mainFragment"
