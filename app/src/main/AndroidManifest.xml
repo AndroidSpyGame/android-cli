@@ -12,9 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Spymasters"
         tools:targetApi="31">
+        <!-- TODO: Необходимо заменить на фрагмент главного меню -->
+        <activity
+            android:name=".game_process_fragments.CreateGameFragment"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

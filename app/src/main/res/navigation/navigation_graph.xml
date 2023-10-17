@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+    <!-- TODO: Это версия Эвелины, у Булата здесь app:startDestination="@id/mainFragment" -->
+
+    <!-- TODO: Навигации Эвелины -->
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.CardFragment"
+        android:label="fragment_card"
+        tools:layout="@layout/fragment_card" >
+        <action
+            android:id="@+id/action_cardFragment_to_timerFragment"
+            app:destination="@id/timerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_cardFragment_to_exitToMenuFragment"
+            app:destination="@id/exitToMenuFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_cardFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- TODO: Навигация Булата -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.kpfu.itis.spymasters.menu_fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_createGameFragment"
+            app:destination="@id/createGameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_creatorsFragment"
+            app:destination="@id/creatorsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.CreateGameFragment"
+        android:label="fragment_create_game"
+        tools:layout="@layout/fragment_create_game" >
+        <!--        <action-->
+        <!--            android:id="@+id/action_createGameFragment_to_startGameFragment"-->
+        <!--            app:destination="@id/startGameFragment" />-->
+        <action
+            android:id="@+id/action_createGameFragment_to_votingFragment"
+            app:destination="@id/votingFragment" />
+        <action
+            android:id="@+id/action_createGameFragment_to_cardFragment"
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/votingFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.VotingFragment"
+        android:label="fragment_voting"
+        tools:layout="@layout/fragment_voting" >
+        <action
+            android:id="@+id/action_votingFragment_to_finishFragment"
+            app:destination="@id/finishFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/creatorsFragment"
+        android:name="ru.kpfu.itis.spymasters.menu_fragments.CreatorsFragment"
+        android:label="CreatorsFragment" >
+        <action
+            android:id="@+id/action_creatorsFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="ru.kpfu.itis.spymasters.menu_fragments.RulesFragment"
+        android:label="RulesFragment" >
+        <action
+            android:id="@+id/action_rulesFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.TimerFragment"
+        android:label="TimerFragment" >
+        <action
+            android:id="@+id/action_timerFragment_to_votingFragment"
+            app:destination="@id/votingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_timerFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_timerFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_timerFragment_to_exitToMenuFragment"
+            app:destination="@id/exitToMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exitToMenuFragment"
+        android:name="ru.kpfu.itis.spymasters.dialogical_fragments.ExitToMenuFragment"
+        android:label="fragment_exit_to_menu"
+        tools:layout="@layout/fragment_exit_to_menu" >
+        <action
+            android:id="@+id/action_exitToMenuFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_exitToMenuFragment_to_cardFragment"
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="ru.kpfu.itis.spymasters.game_process_fragments.FinishFragment"
+        android:label="FinishFragment" >
+        <action
+            android:id="@+id/action_finishFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+</navigation>

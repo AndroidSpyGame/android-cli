@@ -2,4 +2,29 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF007991</color>
+    <color name="primary_dark">#FF007991</color>
+    <color name="accent">#FF007991</color>
+    <color name="accent_dark">#FF007991</color>
+    <color name="background_old">#221B38</color>
+    <color name="deep_blue">#331A56</color>
+    <color name="deep_violet">#3D0252</color>
+    <color name="violet">#8F2180</color>
+    <color name="beige">#AB969C</color>
+    <color name="red">#B01605</color>
+    <color name="red_not_visible">#A8B01605</color>
+    <color name="malina">#B00555</color>
+    <color name="red_not_visible_brighter">#DDE1230D</color>
+    <color name="dark_grey">#A8424242</color>
+    <color name="shadow_color">#97000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="backgroundCreationScreen">#221B38</color>
+    <color name="btnAddPlayer">#42B963</color>
+    <color name="btnCreateGame">#5667FE</color>
+    <color name="changeTimer">#D9D9D9</color>
+    <color name="selectedTimer">#DA9F9F</color>
+    <color name="radioBtnCircle">#575757</color>
+    <color name="removePlayer">#D94545</color>
+    <color name="white_invisible">#D9FFFFFF</color>
+    <color name="red_spies">#D59F9F</color>
 </resources>
